@@ -28,8 +28,8 @@ android {
     }
 }
 dependencies {
-    api(Dep.kotlin)
-    api(Dep.roomKtx)
-    api(Dep.roomRunTime)
-    kapt(Dep.roomCompiler)
+    api(Dep.Kotlin.kotlin)
+    api(Dep.Jitpack.roomKtx)
+    api(Dep.Jitpack.roomRunTime)
+    kapt(Dep.Jitpack.roomCompiler)
 }

@@ -14,5 +14,5 @@ android {
     }
 }
 dependencies {
-    api(Dep.Kotlin.kotlin)
+    DepList.jitpack.forEach { implementation(it) }
 }

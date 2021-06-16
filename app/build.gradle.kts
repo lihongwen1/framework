@@ -68,7 +68,7 @@ android {
 }
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Dep.kotlin)
+    implementation(Dep.Kotlin.kotlin)
     api(project(":basis_bearer"))
     api(project(":library_db"))
     api(project(":library_entity"))
