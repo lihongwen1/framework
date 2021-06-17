@@ -67,9 +67,19 @@ android {
     }
 }
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(Dep.Kotlin.kotlin)
-    api(project(":basis_bearer"))
+    val list =
+        DepList.jitpack + DepList.net + DepList.opensource + DepList.widget
+
+    list
+        .distinct()
+        .filter { !it.contains(Invariant.compiler) }
+        .forEach { api(it) }
+
+    api(project(":basis_jitpack"))
+    api(project(":basis_net"))
+    api(project(":basis_widget"))
+    api(project(":basis_opensource"))
+
     api(project(":library_db"))
     api(project(":library_entity"))
 }

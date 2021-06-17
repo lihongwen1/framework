@@ -1,4 +1,4 @@
-package frame.basis.jitpack.extension.fragment
+package frame.basis.jitpack.extension.app
 
 import android.view.View
 import androidx.fragment.app.Fragment

@@ -9,10 +9,9 @@ import com.sample.demo.databinding.FragmentMainBinding
 import frame.basis.jitpack.BaseComponentActivity
 import frame.basis.jitpack.BaseComponentFragment
 import frame.basis.jitpack.BaseViewModel
-import frame.basis.jitpack.extension.activity.viewBindingInflater
-import frame.basis.jitpack.extension.activity.viewModel
-import frame.basis.jitpack.extension.fragment.viewBinding
-import frame.basis.jitpack.extension.fragment.viewModel
+import frame.basis.jitpack.extension.app.viewBindingInflater
+import frame.basis.jitpack.extension.app.viewModel
+import frame.basis.jitpack.extension.app.viewBinding
 import frame.basis.opensource.permission.requestPermission
 
 class MainActivity : BaseComponentActivity() {

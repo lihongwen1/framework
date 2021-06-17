@@ -1,4 +1,4 @@
-package frame.basis.jitpack.extension
+package frame.basis.jitpack.extension.util
 
 inline fun <reified T> genericType() = T::class.java
 
