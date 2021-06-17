@@ -73,6 +73,14 @@ fun AppCompatActivity.scanFileExpand(path: String, action: (uri: Uri) -> Unit) {
     }
 }
 
+inline fun <reified T : Fragment> AppCompatActivity.findFragment(tag: String): T? {
+    return supportFragmentManager.findFragmentByTag(tag) as? T
+}
+
+inline fun <reified T : Fragment> AppCompatActivity.findFragment(): T? {
+    return findFragment(T::class.java.simpleName) as? T
+}
+
 fun AppCompatActivity.fragmentsExpand(): MutableList<Fragment> =
     supportFragmentManager.fragments
 

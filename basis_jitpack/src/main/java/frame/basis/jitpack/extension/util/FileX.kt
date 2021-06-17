@@ -1,6 +1,5 @@
 package frame.basis.jitpack.extension.util
 
-
 import android.content.ContentValues
 import android.content.Context
 import android.net.Uri

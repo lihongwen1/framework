@@ -1,6 +1,5 @@
 package frame.basis.jitpack.extension.widget
 
-
 import android.content.Context
 import android.os.Build
 import android.view.inputmethod.InputMethodManager
