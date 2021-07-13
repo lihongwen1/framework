@@ -1,14 +1,14 @@
 object Dep {
 
     internal object Version {
-        const val gradle = "4.2.1"
-        const val kotlin = "1.5.10"
-        const val kotlinCoroutines = "1.5.0"
+        const val gradle = "4.2.2"
+        const val kotlin = "1.5.20"
+        const val kotlinCoroutines = "1.5.1"
 
         const val appCompat = "1.3.0"
-        const val fragmentKtx = "1.3.4"
+        const val fragmentKtx = "1.3.5"
         const val activityKtx = "1.2.3"
-        const val coreKtx = "1.5.0"
+        const val coreKtx = "1.6.0"
         const val recyclerView = "1.2.1"
         const val viewPager2 = "1.0.0"
         const val constraintLayout = "2.0.4"
@@ -21,7 +21,7 @@ object Dep {
         const val lifecycle = "2.3.1"
         const val room = "2.3.0"
 
-        const val material = "1.3.0"
+        const val material = "1.4.0"
 
         const val retrofit = "2.9.0"
         const val retrofitLog = "4.9.1"
@@ -29,14 +29,14 @@ object Dep {
 
         const val uCrop = "2.2.6"
         const val glide = "4.12.0"
-        const val coli = "1.2.2"
-        const val multiType = "4.2.0"
+        const val coli = "1.3.0"
+        const val multiType = "4.3.0"
         const val utilCode = "1.30.6"
-        const val xxPermissions = "11.5"
+        const val xxPermissions = "11.6"
         const val rxJava = "3.0.13"
         const val rxAndroid = "3.0.0"
         const val cropper = "2.8.0"
-        const val cameraView = "2.7.0"
+        const val cameraView = "2.7.1"
     }
 
     object ClassPath {
@@ -57,42 +57,42 @@ object Dep {
     }
 
     object Jitpack {
-        // https://maven.google.com/web/index.html?#androidx.appcompat
+        // https://maven.google.com/web/index.html?#androidx.appcompat:appcompat
         const val appCompat = "androidx.appcompat:appcompat:${Version.appCompat}"
 
-        // https://maven.google.com/web/index.html?#androidx.fragment
+        // https://maven.google.com/web/index.html?#androidx.fragment:fragment-ktx
         const val fragmentKtx = "androidx.fragment:fragment-ktx:${Version.fragmentKtx}"
 
-        // https://maven.google.com/web/index.html?#androidx.activity
+        // https://maven.google.com/web/index.html?#androidx.activity:activity-ktx
         const val activityKxt = "androidx.activity:activity-ktx:${Version.activityKtx}"
 
-        // https://maven.google.com/web/index.html?#androidx.core
+        // https://maven.google.com/web/index.html?#androidx.core:core-ktx
         const val coreKtx = "androidx.core:core-ktx:${Version.coreKtx}"
 
-        // https://maven.google.com/web/index.html?#androidx.recyclerview
+        // https://maven.google.com/web/index.html?#androidx.recyclerview:recyclerview
         const val recyclerView = "androidx.recyclerview:recyclerview:${Version.recyclerView}"
 
-        // https://maven.google.com/web/index.html?#androidx.viewpager2
+        // https://maven.google.com/web/index.html?#androidx.viewpager2:viewpager2
         const val viewPager2 = "androidx.viewpager2:viewpager2:${Version.viewPager2}"
 
-        // https://maven.google.com/web/index.html?#androidx.viewpager2
+        // https://maven.google.com/web/index.html?#androidx.constraintlayout:constraintlayout
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Version.constraintLayout}"
 
-        // https://maven.google.com/web/index.html?#androidx.cardview
+        // https://maven.google.com/web/index.html?#androidx.cardview:cardview
         const val cardView = "androidx.cardview:cardview:${Version.cardView}"
 
-        // https://maven.google.com/web/index.html?#androidx.drawerlayout
+        // https://maven.google.com/web/index.html?#androidx.drawerlayout:drawerlayout
         const val drawerLayout = "androidx.drawerlayout:drawerlayout:${Version.drawerLayout}"
 
-        // https://maven.google.com/web/index.html?#androidx.startup
+        // https://maven.google.com/web/index.html?#androidx.startup:startup-runtime
         const val startup = "androidx.startup:startup-runtime:${Version.startup}"
 
-        // https://maven.google.com/web/index.html?#androidx.swiperefreshlayout
+        // https://maven.google.com/web/index.html?#androidx.swiperefreshlayout:swiperefreshlayout
         const val swipeRefreshLayout =
             "androidx.swiperefreshlayout:swiperefreshlayout:${Version.swipeRefreshLayout}"
 
-        // https://maven.google.com/web/index.html?#androidx.multidex
+        // https://maven.google.com/web/index.html?#androidx.multidex:multidex
         const val multidex = "androidx.multidex:multidex:${Version.multidex}"
 
         // https://maven.google.com/web/index.html?#androidx.datastore
@@ -131,17 +131,17 @@ object Dep {
         // https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/README.md
         const val retrofitLog = "com.squareup.okhttp3:logging-interceptor:${Version.retrofitLog}"
 
-        // https://github.com/square/moshi
+        // https://github.com/square/moshi#codegen
         const val moshi = "com.squareup.moshi:moshi:${Version.moshi}"
         const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Version.moshi}"
         const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Version.moshi}"
     }
 
     object Image {
-        // https://github.com/bumptech/glide
+        // https://github.com/bumptech/glide#download
         const val glide = "com.github.bumptech.glide:glide:${Version.glide}"
 
-        // https://github.com/coil-kt/coil
+        // https://github.com/coil-kt/coil#download
         const val coli = "io.coil-kt:coil:${Version.coli}"
         const val coliGif = "io.coil-kt:coil-gif:${Version.coli}"
         const val coliSvg = "io.coil-kt:coil-svg:${Version.coli}"
@@ -150,10 +150,10 @@ object Dep {
         // https://github.com/Yalantis/uCrop
         const val uCrop = "com.github.yalantis:ucrop:${Version.uCrop}"
 
-        // https://github.com/ArthurHub/Android-Image-Cropper
+        // https://github.com/ArthurHub/Android-Image-Cropper#usage
         const val cropper = "com.theartofdev.edmodo:android-image-cropper:${Version.cropper}"
 
-        // https://github.com/natario1/CameraView
+        // https://github.com/natario1/CameraView#cameraview
         const val cameraView = "com.otaliastudios:cameraview:${Version.cameraView}"
     }
 
@@ -161,10 +161,10 @@ object Dep {
         // https://github.com/getActivity/XXPermissions
         const val xxPermissions = "com.github.getActivity:XXPermissions:${Version.xxPermissions}"
 
-        // https://github.com/drakeet/MultiType
+        // https://github.com/drakeet/MultiType#getting-started
         const val multiType = "com.drakeet.multitype:multitype:${Version.multiType}"
 
-        // https://github.com/Blankj/AndroidUtilCode
+        // https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
         const val utilCode = "com.blankj:utilcodex:${Version.utilCode}"
     }
 
@@ -172,7 +172,7 @@ object Dep {
         // https://github.com/ReactiveX/RxJava
         const val rxJava = "io.reactivex.rxjava3:rxjava:${Version.rxJava}"
 
-        // https://github.com/ReactiveX/RxAndroid
+        // https://github.com/ReactiveX/RxAndroid#binaries
         const val rxAndroid = "io.reactivex.rxjava3:rxandroid:${Version.rxAndroid}"
     }
 

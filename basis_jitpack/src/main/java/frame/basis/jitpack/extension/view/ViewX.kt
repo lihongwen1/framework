@@ -14,6 +14,15 @@ fun View.addOnPreDrawListenerExpand(action: () -> Unit) {
     })
 }
 
+fun View.addOnGlobalLayoutListenerExpand(action: () -> Unit) {
+    viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        override fun onGlobalLayout() {
+            viewTreeObserver.removeOnGlobalLayoutListener(this)
+            action.invoke()
+        }
+    })
+}
+
 fun View.postDelayedExpand(
     delayInMillis: Long,
     action: () -> Unit
