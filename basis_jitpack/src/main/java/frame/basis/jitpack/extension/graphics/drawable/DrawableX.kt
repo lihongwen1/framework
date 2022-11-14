@@ -19,7 +19,7 @@ val Drawable.alphaExpand: Int
 val Drawable.canApplyThemeExpand: Boolean
     get() = DrawableCompat.canApplyTheme(this)
 
-val Drawable.colorFilterExpand: ColorFilter
+val Drawable.colorFilterExpand: ColorFilter?
     get() = DrawableCompat.getColorFilter(this)
 
 val Drawable.layoutDirectionExpand: Int

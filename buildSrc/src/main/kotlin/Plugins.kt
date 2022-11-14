@@ -5,4 +5,7 @@ object Plugins {
     const val kotlin_android = "android"
     const val kotlin_parcelize = "kotlin-parcelize"
     const val kotlin_kapt = "kapt"
+
+    const val androidVersion = "7.3.1"
+    const val kotlinVersion = "1.7.21"
 }

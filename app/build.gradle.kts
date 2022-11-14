@@ -8,11 +8,11 @@ android {
     compileSdkVersion(SdkVersions.compileSdk)
     defaultConfig {
         ndk { abiFilters.add(Invariant.armeabiV7a) }
-        applicationId(Plugins.applicationId)
+        applicationId = Plugins.applicationId
         minSdkVersion(SdkVersions.minSdk)
         targetSdkVersion(SdkVersions.targetSdk)
-        versionCode(SdkVersions.versionCode)
-        versionName(SdkVersions.versionName)
+        versionCode = SdkVersions.versionCode
+        versionName = SdkVersions.versionName
         multiDexEnabled = true
     }
     buildFeatures {

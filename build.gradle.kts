@@ -1,20 +1,5 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
-    }
-    dependencies {
-        classpath(Dep.ClassPath.gradle)
-        classpath(Dep.ClassPath.kotlin)
-    }
-}
-allprojects {
-    tasks.withType<JavaCompile> { options.encoding = Invariant.UTF_8 }
-    repositories {
-        google()
-        mavenCentral()
-        maven(Maven.jitpack)
-        jcenter() // Warning: this repository is going to shut down soon
-    }
+plugins {
+    id(Plugins.application) version Plugins.androidVersion apply false
+    id(Plugins.library) version Plugins.androidVersion apply false
+    kotlin(Plugins.kotlin_android) version Plugins.kotlinVersion apply false
 }

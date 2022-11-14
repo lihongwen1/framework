@@ -1,50 +1,41 @@
 object Dep {
 
     internal object Version {
-        const val gradle = "4.2.2"
-        const val kotlin = "1.5.20"
-        const val kotlinCoroutines = "1.5.1"
+        const val kotlin = "1.7.21"
+        const val kotlinCoroutines = "1.6.4"
 
-        const val appCompat = "1.3.0"
-        const val fragmentKtx = "1.3.5"
-        const val activityKtx = "1.2.3"
-        const val coreKtx = "1.6.0"
+        const val appCompat = "1.5.1"
+        const val fragmentKtx = "1.5.4"
+        const val activityKtx = "1.6.1"
+        const val coreKtx = "1.9.0"
         const val recyclerView = "1.2.1"
         const val viewPager2 = "1.0.0"
-        const val constraintLayout = "2.0.4"
+        const val constraintLayout = "2.1.4"
         const val cardView = "1.0.0"
         const val drawerLayout = "1.1.1"
-        const val startup = "1.1.0-beta01"
+        const val startup = "1.1.1"
         const val swipeRefreshLayout = "1.1.0"
-        const val dataStore = "1.0.0-beta01"
+        const val dataStore = "1.0.0"
         const val multidex = "2.0.1"
-        const val lifecycle = "2.3.1"
-        const val room = "2.3.0"
+        const val lifecycle = "2.5.1"
+        const val room = "2.4.3"
 
-        const val material = "1.4.0"
+        const val material = "1.7.0"
 
         const val retrofit = "2.9.0"
-        const val retrofitLog = "4.9.1"
-        const val moshi = "1.12.0"
+        const val retrofitLog = "4.10.0"
+        const val moshi = "1.14.0"
 
         const val uCrop = "2.2.6"
-        const val glide = "4.12.0"
-        const val coli = "1.3.0"
+        const val glide = "4.14.2"
+        const val coli = "2.2.2"
         const val multiType = "4.3.0"
-        const val utilCode = "1.30.6"
-        const val xxPermissions = "11.6"
-        const val rxJava = "3.0.13"
-        const val rxAndroid = "3.0.0"
+        const val utilCode = "1.31.1"
+        const val xxPermissions = "16.2"
+        const val rxJava = "3.1.5"
+        const val rxAndroid = "3.0.2"
         const val cropper = "2.8.0"
-        const val cameraView = "2.7.1"
-    }
-
-    object ClassPath {
-        // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}"
-
-        // https://maven.google.com/web/index.html?q=gradle#com.android.tools.build:gradle
-        const val gradle = "com.android.tools.build:gradle:${Version.gradle}"
+        const val cameraView = "2.7.2"
     }
 
     object Kotlin {
@@ -169,7 +160,7 @@ object Dep {
     }
 
     object Rx {
-        // https://github.com/ReactiveX/RxJava
+        // https://github.com/ReactiveX/RxJava#setting-up-the-dependency
         const val rxJava = "io.reactivex.rxjava3:rxjava:${Version.rxJava}"
 
         // https://github.com/ReactiveX/RxAndroid#binaries

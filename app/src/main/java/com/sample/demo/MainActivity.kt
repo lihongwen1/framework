@@ -2,17 +2,14 @@ package com.sample.demo
 
 import android.os.Bundle
 import android.view.View
-import com.blankj.utilcode.util.ToastUtils
-import com.hjq.permissions.Permission
 import com.sample.demo.databinding.ActivityMainBinding
 import com.sample.demo.databinding.FragmentMainBinding
 import frame.basis.jitpack.BaseComponentActivity
 import frame.basis.jitpack.BaseComponentFragment
 import frame.basis.jitpack.BaseViewModel
+import frame.basis.jitpack.extension.app.viewBinding
 import frame.basis.jitpack.extension.app.viewBindingInflater
 import frame.basis.jitpack.extension.app.viewModel
-import frame.basis.jitpack.extension.app.viewBinding
-import frame.basis.opensource.permission.requestPermission
 
 class MainActivity : BaseComponentActivity() {
 
@@ -28,14 +25,6 @@ class MainActivity : BaseComponentActivity() {
             .beginTransaction()
             .replace(R.id.fragment, MainFragment())
             .commitAllowingStateLoss()
-        requestPermission(listOf(Permission.ACCESS_FINE_LOCATION)) {
-            granted { permissions, _ ->
-                ToastUtils.showLong(permissions.toString())
-            }
-            denied { permissions, _ ->
-                ToastUtils.showLong(permissions.toString())
-            }
-        }
     }
 
     class MainFragment : BaseComponentFragment(R.layout.fragment_main) {
