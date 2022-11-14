@@ -1,6 +1,8 @@
 package frame.basis.jitpack.extension.content
 
 
+import android.annotation.SuppressLint
+import android.app.PendingIntent
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -10,12 +12,15 @@ import android.content.res.Configuration
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.net.VpnService
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
+import androidx.core.text.TextUtilsCompat
+import androidx.core.view.ViewCompat
 import frame.basis.jitpack.extension.graphics.drawable.minimumWidthAndHeightDrawableExpand
 import frame.basis.jitpack.extension.version.hasQExpand
 import java.io.BufferedReader
@@ -47,14 +52,27 @@ val Context.mainExecutorCompat: Executor
 val Context.isLandscapeExpand: Boolean
     get() = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
+val Context.isFirstConnectExpand: Boolean
+    get() = VpnService.prepare(this) != null
+
+val Context.isRtlExpand: Boolean
+    get() = TextUtilsCompat.getLayoutDirectionFromLocale(resources.configuration.locale) == ViewCompat.LAYOUT_DIRECTION_RTL
+
+val Context.installTimeExpand: Long
+    @SuppressLint("PackageManagerGetSignatures")
+    get() = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES).lastUpdateTime
+
+val Context.installDayExpand: Int
+    get() = ((System.currentTimeMillis() - installTimeExpand) / (1000 * 60 * 60 * 24)).toInt()
+
 val Context.userIconExpand: Drawable
     get() = getAppIconExpand(packageName)
 
 val Context.isCameraExpand: Boolean
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     get() = packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)
 
 val Context.statusBarHeightExpand: Int
+    @SuppressLint("DiscouragedApi", "InternalInsetResource")
     get() {
         return runCatching {
             val resourceId: Int = resources.getIdentifier("status_bar_height", "dimen", "android")
@@ -153,6 +171,15 @@ fun Context.findIdByUriExpand(uri: Uri): Long =
 
 fun Context.findPathByUriExpand(uri: Uri): String? =
     contentResolver.queryDataExpand(uri)
+
+fun Context.pendingIntentExpand(clazz: Class<*>): PendingIntent? {
+    val intent = Intent(this, clazz)
+    val flags = when {
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        else -> PendingIntent.FLAG_UPDATE_CURRENT
+    }
+    return PendingIntent.getBroadcast(this, 1, intent, flags)
+}
 
 fun Context.getJsonExpand(fileName: String): String {
     val stringBuilder = StringBuilder()
