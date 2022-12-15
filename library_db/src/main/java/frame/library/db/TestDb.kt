@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 class TestDb(
     @ColumnInfo(name = "key")
     @PrimaryKey(autoGenerate = true)
-    val key: Long,
+    val key: Long = 0,
     @ColumnInfo(name = "value")
-    val value: String
+    val value: String,
 )

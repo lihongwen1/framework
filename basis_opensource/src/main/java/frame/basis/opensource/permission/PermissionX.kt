@@ -8,14 +8,14 @@ import com.hjq.permissions.XXPermissions
 
 fun AppCompatActivity.requestPermission(
     permissions: List<String>,
-    action: PermissionDsl.() -> Unit
+    action: PermissionDsl.() -> Unit,
 ) {
     PermissionDsl().also(action).build(activity = this, permissions = permissions)
 }
 
 fun Fragment.requestPermission(
     permissions: List<String>,
-    action: PermissionDsl.() -> Unit
+    action: PermissionDsl.() -> Unit,
 ) {
     PermissionDsl().also(action).build(fragment = this, permissions = permissions)
 }
@@ -35,7 +35,7 @@ class PermissionDsl {
     internal fun build(
         activity: AppCompatActivity? = null,
         fragment: Fragment? = null,
-        permissions: List<String>
+        permissions: List<String>,
     ) {
         PermissionX.request(
             activity = activity,
@@ -53,7 +53,7 @@ class PermissionDsl {
     }
 }
 
-object PermissionX {
+internal object PermissionX {
 
     interface OnPermissionXCallback {
         fun onGranted(permissions: List<String>, all: Boolean)
@@ -64,21 +64,21 @@ object PermissionX {
         activity: Activity? = null,
         fragment: Fragment? = null,
         permissions: List<String>,
-        callback: OnPermissionXCallback
+        callback: OnPermissionXCallback,
     ) {
         val permission = if (activity != null) {
             XXPermissions.with(activity)
         } else {
-            XXPermissions.with(fragment)
+            XXPermissions.with(requireNotNull(fragment))
         }
         permission.permission(permissions)
             .request(object : OnPermissionCallback {
-                override fun onGranted(permissions: MutableList<String>?, all: Boolean) {
-                    callback.onGranted(permissions ?: emptyList(), all)
+                override fun onGranted(permissions: MutableList<String>, all: Boolean) {
+                    callback.onGranted(permissions, all)
                 }
 
-                override fun onDenied(permissions: MutableList<String>?, never: Boolean) {
-                    callback.onDenied(permissions ?: emptyList(), never)
+                override fun onDenied(permissions: MutableList<String>, never: Boolean) {
+                    callback.onDenied(permissions, never)
                 }
             })
     }

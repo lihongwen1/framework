@@ -6,10 +6,11 @@ plugins {
     kotlin(Plugins.kotlin_kapt)
 }
 android {
-    compileSdkVersion(SdkVersions.compileSdk)
+    namespace = "frame.library.db"
+    compileSdk = SdkVersions.compileSdk
     defaultConfig {
-        minSdkVersion(SdkVersions.minSdk)
-        targetSdkVersion(SdkVersions.targetSdk)
+        minSdk = SdkVersions.minSdk
+        targetSdk = SdkVersions.targetSdk
         kapt {
             arguments {
                 arg(schemaLocation[0], schemaLocation[1])
@@ -17,9 +18,6 @@ android {
                 arg(Invariant.RoomArgs.expandProjection[0], Invariant.RoomArgs.expandProjection[1])
             }
         }
-    }
-    buildFeatures {
-        viewBinding = true
     }
     sourceSets {
         getByName(Invariant.MAIN) {

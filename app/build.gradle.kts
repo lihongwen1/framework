@@ -67,8 +67,7 @@ android {
     }
 }
 dependencies {
-    val list =
-        DepList.jitpack + DepList.net + DepList.opensource + DepList.widget
+    val list = DepList.jitpack + DepList.net + DepList.opensource
 
     list
         .distinct()
@@ -77,9 +76,7 @@ dependencies {
 
     api(project(":basis_jitpack"))
     api(project(":basis_net"))
-    api(project(":basis_widget"))
     api(project(":basis_opensource"))
 
     api(project(":library_db"))
-    api(project(":library_entity"))
 }

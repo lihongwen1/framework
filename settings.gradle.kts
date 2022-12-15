@@ -18,7 +18,5 @@ dependencyResolutionManagement {
 include(":app")
 include(":basis_net")
 include(":basis_jitpack")
-include(":basis_widget")
 include(":basis_opensource")
 include(":library_db")
-include(":library_entity")

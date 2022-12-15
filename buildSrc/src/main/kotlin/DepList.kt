@@ -54,7 +54,4 @@ object DepList {
         add(Dep.Rx.rxAndroid)
         add(Dep.Rx.rxJava)
     }
-    val widget: List<String> = arrayListOf<String>().apply {
-        add(Dep.Kotlin.kotlin)
-    }
 }
