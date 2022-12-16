@@ -3,18 +3,18 @@ package frame.basis.jitpack.extension.widget
 import android.widget.SeekBar
 
 fun SeekBar.doOnProgressChangedExpand(action: (seekBar: SeekBar, progress: Int, fromUser: Boolean) -> Unit): SeekBar =
-    addSeekBarChangeListenerExpand(onProgressChanged = action)
+    setSeekBarChangeListenerExpand(onProgressChanged = action)
 
 fun SeekBar.doOnStartTrackingTouchExpand(action: (seekBar: SeekBar) -> Unit): SeekBar =
-    addSeekBarChangeListenerExpand(onStartTrackingTouch = action)
+    setSeekBarChangeListenerExpand(onStartTrackingTouch = action)
 
 fun SeekBar.doOnStopTrackingTouchExpand(action: (seekBar: SeekBar) -> Unit): SeekBar =
-    addSeekBarChangeListenerExpand(onStopTrackingTouch = action)
+    setSeekBarChangeListenerExpand(onStopTrackingTouch = action)
 
-fun SeekBar.addSeekBarChangeListenerExpand(
+fun SeekBar.setSeekBarChangeListenerExpand(
     onProgressChanged: (seekBar: SeekBar, progress: Int, fromUser: Boolean) -> Unit = { _, _, _ -> },
     onStartTrackingTouch: (seekBar: SeekBar) -> Unit = { _ -> },
-    onStopTrackingTouch: (seekBar: SeekBar) -> Unit = { _ -> }
+    onStopTrackingTouch: (seekBar: SeekBar) -> Unit = { _ -> },
 ): SeekBar {
     val listener = object : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) =

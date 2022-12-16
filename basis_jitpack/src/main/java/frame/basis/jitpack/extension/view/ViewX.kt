@@ -25,7 +25,7 @@ fun View.addOnGlobalLayoutListenerExpand(action: () -> Unit) {
 
 fun View.postDelayedExpand(
     delayInMillis: Long,
-    action: () -> Unit
+    action: () -> Unit,
 ): Runnable {
     val runnable = Runnable { action() }
     postDelayed(runnable, delayInMillis)
@@ -44,19 +44,19 @@ fun View.hideExpand(): View = apply { if (!isGoneExpand()) visibility = View.GON
 
 fun View.invisibleExpand(): View = apply { if (!isInVisibleExpand()) visibility = View.INVISIBLE }
 
-fun goneViews(vararg views: View?) {
+fun goneViewsExpand(vararg views: View?) {
     for (view in views) {
         view?.hideExpand()
     }
 }
 
-fun visibleViews(vararg views: View?) {
+fun visibleViewsExpand(vararg views: View?) {
     for (view in views) {
         view?.showExpand()
     }
 }
 
-fun invisibleView(vararg views: View?) {
+fun invisibleViewExpand(vararg views: View?) {
     for (view in views) {
         view?.invisibleExpand()
     }

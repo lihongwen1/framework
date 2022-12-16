@@ -14,7 +14,7 @@ fun Animation.doOnAnimationRepeatExpand(action: (animation: Animation) -> Unit):
 fun Animation.setAnimationListenerExpand(
     onAnimationRepeat: (animation: Animation) -> Unit = {},
     onAnimationEnd: (animation: Animation) -> Unit = {},
-    onAnimationStart: (animation: Animation) -> Unit = {}
+    onAnimationStart: (animation: Animation) -> Unit = {},
 ): Animation {
     val listener = object : Animation.AnimationListener {
         override fun onAnimationRepeat(animation: Animation) = onAnimationRepeat.invoke(animation)

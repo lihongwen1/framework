@@ -6,7 +6,7 @@ import androidx.annotation.Keep
 data class DataResult<T>(
     val code: Int,
     val message: String?,
-    private val data: T?
+    private val data: T?,
 ) {
 
     companion object {
@@ -15,16 +15,6 @@ data class DataResult<T>(
 //        }
     }
 
-    val safeData: T
-        get() {
-            if (code == 0 && data != null) {
-                return notNullData
-            } else {
-                throw RuntimeException("$message")
-            }
-        }
-
-    @Suppress("MemberVisibilityCanBePrivate")
     val notNullData: T
         get() = data ?: throw KotlinNullPointerException("data == null")
 

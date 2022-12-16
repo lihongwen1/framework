@@ -144,7 +144,7 @@ fun Context.quantityTextExpand(@PluralsRes id: Int, quantity: Int): CharSequence
 fun Context.quantityStringExpand(
     @PluralsRes id: Int,
     quantity: Int,
-    vararg formatArgs: Any
+    vararg formatArgs: Any,
 ): CharSequence = this.resources.getQuantityString(id, quantity, *formatArgs)
 
 fun Context.quantityStringExpand(@PluralsRes id: Int, quantity: Int): String =
@@ -205,7 +205,7 @@ fun Context.insertImageUriExpand(contentValues: ContentValues): Uri? =
 
 fun Context.insertImageUriExpand(
     file: File,
-    relativePath: String = Environment.DIRECTORY_DCIM
+    relativePath: String = Environment.DIRECTORY_DCIM,
 ): Uri? = insertImageUriExpand(ContentValues().apply {
     if (hasQExpand()) {
         put(MediaStore.MediaColumns.DISPLAY_NAME, file.name)
@@ -224,7 +224,7 @@ fun Context.insertVideoUriExpand(contentValues: ContentValues): Uri? =
 
 fun Context.insertVideoUriExpand(
     file: File,
-    relativePath: String = Environment.DIRECTORY_DCIM
+    relativePath: String = Environment.DIRECTORY_DCIM,
 ): Uri? = insertVideoUriExpand(ContentValues().apply {
     if (Build.VERSION.SDK_INT >= 29) {
         put(MediaStore.MediaColumns.DISPLAY_NAME, file.name)

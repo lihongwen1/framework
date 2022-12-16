@@ -2,14 +2,11 @@
 
 package frame.basis.jitpack.extension.os
 
-import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
-import androidx.annotation.RequiresApi
-
 import java.io.Serializable
 
 fun Bundle?.orEmptyExpand(): Bundle = this ?: Bundle.EMPTY
@@ -47,11 +44,9 @@ fun Bundle?.getStringExpand(key: String): String =
 fun Bundle?.getCharSequenceExpand(key: String): CharSequence =
     getCharSequenceOrDefault(key)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Bundle?.getSizeExpand(key: String): Size =
     getSizeOrDefault(key)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Bundle?.getSizeFExpand(key: String): SizeF =
     getSizeFOrDefault(key)
 
@@ -147,109 +142,107 @@ fun Bundle?.getCharSequenceOrDefault(key: String, defaultValue: CharSequence = "
 
 fun <T : Parcelable> Bundle?.getParcelableOrDefault(
     key: String,
-    defaultValue: Parcelable = this?.getParcelable<T>(key)!!
+    defaultValue: Parcelable = this?.getParcelable<T>(key)!!,
 ): T = getParcelableOrDefault(key) { defaultValue as T }
 
 fun <T : Parcelable> Bundle?.getParcelableArrayOrDefault(
     key: String,
-    defaultValue: Array<Parcelable> = emptyArray()
+    defaultValue: Array<Parcelable> = emptyArray(),
 ): Array<T> = getParcelableArrayOrDefault(key) { defaultValue as Array<T> }
 
 fun <T : Parcelable> Bundle?.getParcelableArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<T> = arrayListOf()
+    defaultValue: ArrayList<T> = arrayListOf(),
 ): ArrayList<T> = getParcelableArrayListOrDefault(key) { defaultValue }
 
 fun <T : Parcelable> Bundle?.getSparseParcelableArrayOrDefault(
     key: String,
-    defaultValue: SparseArray<T> = SparseArray()
+    defaultValue: SparseArray<T> = SparseArray(),
 ): SparseArray<T> = getSparseParcelableArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getBundleOrDefault(
     key: String,
-    defaultValue: Bundle = Bundle.EMPTY
+    defaultValue: Bundle = Bundle.EMPTY,
 ): Bundle = getBundleOrDefault(key) { defaultValue }
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Bundle?.getSizeOrDefault(
     key: String,
-    defaultValue: Size = Size(0, 0)
+    defaultValue: Size = Size(0, 0),
 ): Size = getSizeOrDefault(key) { defaultValue }
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Bundle?.getSizeFOrDefault(
     key: String,
-    defaultValue: SizeF = SizeF(0.toFloat(), 0.toFloat())
+    defaultValue: SizeF = SizeF(0.toFloat(), 0.toFloat()),
 ): SizeF = getSizeFOrDefault(key) { defaultValue }
 
 fun Bundle?.getIntArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<Int> = arrayListOf()
+    defaultValue: ArrayList<Int> = arrayListOf(),
 ): ArrayList<Int> = getIntArrayListOrDefault(key) { defaultValue }
 
 fun Bundle?.getStringArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<String> = arrayListOf()
+    defaultValue: ArrayList<String> = arrayListOf(),
 ): ArrayList<String> = getStringArrayListOrDefault(key) { defaultValue }
 
 fun Bundle?.getCharSequenceArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<CharSequence> = arrayListOf()
+    defaultValue: ArrayList<CharSequence> = arrayListOf(),
 ): ArrayList<CharSequence> = getCharSequenceArrayListOrDefault(key) { defaultValue }
 
 fun Bundle?.getSerializableOrDefault(
     key: String,
-    defaultValue: Serializable = this?.getSerializable(key)!!
+    defaultValue: Serializable = this?.getSerializable(key)!!,
 ): Serializable = getSerializableOrDefault(key) { defaultValue }
 
 fun Bundle?.getBooleanArrayOrDefault(
     key: String,
-    defaultValue: BooleanArray = booleanArrayOf()
+    defaultValue: BooleanArray = booleanArrayOf(),
 ): BooleanArray = getBooleanArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getByteArrayOrDefault(
     key: String,
-    defaultValue: ByteArray = byteArrayOf()
+    defaultValue: ByteArray = byteArrayOf(),
 ): ByteArray = getByteArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getShortArrayOrDefault(
     key: String,
-    defaultValue: ShortArray = shortArrayOf()
+    defaultValue: ShortArray = shortArrayOf(),
 ): ShortArray = getShortArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getCharArrayOrDefault(
     key: String,
-    defaultValue: CharArray = charArrayOf()
+    defaultValue: CharArray = charArrayOf(),
 ): CharArray = getCharArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getIntArrayOrDefault(
     key: String,
-    defaultValue: IntArray = intArrayOf()
+    defaultValue: IntArray = intArrayOf(),
 ): IntArray = getIntArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getLongArrayOrDefault(
     key: String,
-    defaultValue: LongArray = longArrayOf()
+    defaultValue: LongArray = longArrayOf(),
 ): LongArray = getLongArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getFloatArrayOrDefault(
     key: String,
-    defaultValue: FloatArray = floatArrayOf()
+    defaultValue: FloatArray = floatArrayOf(),
 ): FloatArray = getFloatArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getDoubleArrayOrDefault(
     key: String,
-    defaultValue: DoubleArray = doubleArrayOf()
+    defaultValue: DoubleArray = doubleArrayOf(),
 ): DoubleArray = getDoubleArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getStringArrayOrDefault(
     key: String,
-    defaultValue: Array<String> = emptyArray()
+    defaultValue: Array<String> = emptyArray(),
 ): Array<String> = getStringArrayOrDefault(key) { defaultValue }
 
 fun Bundle?.getCharSequenceArrayOrDefault(
     key: String,
-    defaultValue: Array<CharSequence> = emptyArray()
+    defaultValue: Array<CharSequence> = emptyArray(),
 ): Array<CharSequence> = getCharSequenceArrayOrDefault(key) { defaultValue }
 
 //ifNone
@@ -258,7 +251,7 @@ fun Bundle?.getOrDefault(key: String, ifNone: () -> Any): Any =
 
 fun Bundle?.getBooleanOrDefault(
     key: String,
-    ifNone: () -> Boolean
+    ifNone: () -> Boolean,
 ): Boolean = getObjExpand(key, ifNone)
 
 fun Bundle?.getByteOrDefault(key: String, ifNone: () -> Byte): Byte =
@@ -290,32 +283,30 @@ fun Bundle?.getCharSequenceOrDefault(key: String, ifNone: () -> CharSequence): C
 
 fun <T : Parcelable> Bundle?.getParcelableOrDefault(
     key: String,
-    ifNone: () -> T
+    ifNone: () -> T,
 ): T = getObjExpand(key, ifNone)
 
 fun <T : Parcelable> Bundle?.getParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> Array<T>
+    ifNone: () -> Array<T>,
 ): Array<T> = getObjExpand(key, ifNone)
 
 fun <T : Parcelable> Bundle?.getParcelableArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<T>
+    ifNone: () -> ArrayList<T>,
 ): ArrayList<T> = getObjExpand(key, ifNone)
 
 fun <T : Parcelable> Bundle?.getSparseParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> SparseArray<T>
+    ifNone: () -> SparseArray<T>,
 ): SparseArray<T> = getObjExpand(key, ifNone)
 
 fun Bundle?.getBundleOrDefault(key: String, ifNone: () -> Bundle): Bundle =
     getObjExpand(key, ifNone)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Bundle?.getSizeOrDefault(key: String, ifNone: () -> Size): Size =
     getObjExpand(key, ifNone)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Bundle?.getSizeFOrDefault(key: String, ifNone: () -> SizeF): SizeF =
     getObjExpand(key, ifNone)
 
@@ -324,13 +315,13 @@ fun Bundle?.getIntArrayListOrDefault(key: String, ifNone: () -> ArrayList<Int>):
 
 fun Bundle?.getStringArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<String>
+    ifNone: () -> ArrayList<String>,
 ): ArrayList<String> =
     getObjExpand(key, ifNone)
 
 fun Bundle?.getCharSequenceArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<CharSequence>
+    ifNone: () -> ArrayList<CharSequence>,
 ): ArrayList<CharSequence> =
     getObjExpand(key, ifNone)
 
@@ -366,7 +357,7 @@ fun Bundle?.getStringArrayOrDefault(key: String, ifNone: () -> Array<String>): A
 
 fun Bundle?.getCharSequenceArrayOrDefault(
     key: String,
-    ifNone: () -> Array<CharSequence>
+    ifNone: () -> Array<CharSequence>,
 ): Array<CharSequence> = getObjExpand(key, ifNone)
 
 fun <T> Bundle?.getObjExpand(key: String, action: Action<T>): T =

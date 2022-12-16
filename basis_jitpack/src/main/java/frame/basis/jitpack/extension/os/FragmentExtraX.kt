@@ -2,15 +2,12 @@
 
 package frame.basis.jitpack.extension.os
 
-import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-
 import java.io.Serializable
 
 val Fragment?.bundleExpand: Bundle?
@@ -51,11 +48,9 @@ fun Fragment?.getStringExpand(key: String): String =
 fun Fragment?.getCharSequenceExpand(key: String): CharSequence =
     bundleExpand.getCharSequenceExpand(key)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Fragment?.getSizeExpand(key: String): Size =
     bundleExpand.getSizeExpand(key)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Fragment?.getSizeFExpand(key: String): SizeF =
     bundleExpand.getSizeFExpand(key)
 
@@ -151,109 +146,107 @@ fun Fragment?.getCharSequenceOrDefault(key: String, defaultValue: CharSequence =
 
 fun <T : Parcelable> Fragment?.getParcelableOrDefault(
     key: String,
-    defaultValue: Parcelable = this?.arguments?.getParcelable<T>(key)!!
+    defaultValue: Parcelable,
 ): T = bundleExpand.getParcelableOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Fragment?.getParcelableArrayOrDefault(
     key: String,
-    defaultValue: Array<Parcelable> = emptyArray()
+    defaultValue: Array<Parcelable> = emptyArray(),
 ): Array<T> = bundleExpand.getParcelableArrayOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Fragment?.getParcelableArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<T> = arrayListOf()
+    defaultValue: ArrayList<T> = arrayListOf(),
 ): ArrayList<T> = bundleExpand.getParcelableArrayListOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Fragment?.getSparseParcelableArrayOrDefault(
     key: String,
-    defaultValue: SparseArray<T> = SparseArray()
+    defaultValue: SparseArray<T> = SparseArray(),
 ): SparseArray<T> = bundleExpand.getSparseParcelableArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getBundleOrDefault(
     key: String,
-    defaultValue: Bundle = Bundle.EMPTY
+    defaultValue: Bundle = Bundle.EMPTY,
 ): Bundle = bundleExpand.getBundleOrDefault(key, defaultValue)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Fragment?.getSizeOrDefault(
     key: String,
-    defaultValue: Size = Size(0, 0)
+    defaultValue: Size = Size(0, 0),
 ): Size = bundleExpand.getSizeOrDefault(key, defaultValue)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Fragment?.getSizeFOrDefault(
     key: String,
-    defaultValue: SizeF = SizeF(0.toFloat(), 0.toFloat())
+    defaultValue: SizeF = SizeF(0.toFloat(), 0.toFloat()),
 ): SizeF = bundleExpand.getSizeFOrDefault(key, defaultValue)
 
 fun Fragment?.getIntArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<Int> = arrayListOf()
+    defaultValue: ArrayList<Int> = arrayListOf(),
 ): ArrayList<Int> = bundleExpand.getIntArrayListOrDefault(key, defaultValue)
 
 fun Fragment?.getStringArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<String> = arrayListOf()
+    defaultValue: ArrayList<String> = arrayListOf(),
 ): ArrayList<String> = bundleExpand.getStringArrayListOrDefault(key, defaultValue)
 
 fun Fragment?.getCharSequenceArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<CharSequence> = arrayListOf()
+    defaultValue: ArrayList<CharSequence> = arrayListOf(),
 ): ArrayList<CharSequence> = bundleExpand.getCharSequenceArrayListOrDefault(key, defaultValue)
 
 fun Fragment?.getSerializableOrDefault(
     key: String,
-    defaultValue: Serializable = this?.arguments?.getSerializable(key)!!
+    defaultValue: Serializable,
 ): Serializable = bundleExpand.getSerializableOrDefault(key, defaultValue)
 
 fun Fragment?.getBooleanArrayOrDefault(
     key: String,
-    defaultValue: BooleanArray = booleanArrayOf()
+    defaultValue: BooleanArray = booleanArrayOf(),
 ): BooleanArray = bundleExpand.getBooleanArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getByteArrayOrDefault(
     key: String,
-    defaultValue: ByteArray = byteArrayOf()
+    defaultValue: ByteArray = byteArrayOf(),
 ): ByteArray = bundleExpand.getByteArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getShortArrayOrDefault(
     key: String,
-    defaultValue: ShortArray = shortArrayOf()
+    defaultValue: ShortArray = shortArrayOf(),
 ): ShortArray = bundleExpand.getShortArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getCharArrayOrDefault(
     key: String,
-    defaultValue: CharArray = charArrayOf()
+    defaultValue: CharArray = charArrayOf(),
 ): CharArray = bundleExpand.getCharArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getIntArrayOrDefault(
     key: String,
-    defaultValue: IntArray = intArrayOf()
+    defaultValue: IntArray = intArrayOf(),
 ): IntArray = bundleExpand.getIntArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getLongArrayOrDefault(
     key: String,
-    defaultValue: LongArray = longArrayOf()
+    defaultValue: LongArray = longArrayOf(),
 ): LongArray = bundleExpand.getLongArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getFloatArrayOrDefault(
     key: String,
-    defaultValue: FloatArray = floatArrayOf()
+    defaultValue: FloatArray = floatArrayOf(),
 ): FloatArray = bundleExpand.getFloatArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getDoubleArrayOrDefault(
     key: String,
-    defaultValue: DoubleArray = doubleArrayOf()
+    defaultValue: DoubleArray = doubleArrayOf(),
 ): DoubleArray = bundleExpand.getDoubleArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getStringArrayOrDefault(
     key: String,
-    defaultValue: Array<String> = emptyArray()
+    defaultValue: Array<String> = emptyArray(),
 ): Array<String> = bundleExpand.getStringArrayOrDefault(key, defaultValue)
 
 fun Fragment?.getCharSequenceArrayOrDefault(
     key: String,
-    defaultValue: Array<CharSequence> = emptyArray()
+    defaultValue: Array<CharSequence> = emptyArray(),
 ): Array<CharSequence> = bundleExpand.getCharSequenceArrayOrDefault(key, defaultValue)
 
 //ifNone
@@ -262,7 +255,7 @@ fun Fragment?.getOrDefault(key: String, ifNone: () -> Any): Any =
 
 fun Fragment?.getBooleanOrDefault(
     key: String,
-    ifNone: () -> Boolean
+    ifNone: () -> Boolean,
 ): Boolean = bundleExpand.getBooleanOrDefault(key, ifNone)
 
 fun Fragment?.getByteOrDefault(key: String, ifNone: () -> Byte): Byte =
@@ -294,32 +287,30 @@ fun Fragment?.getCharSequenceOrDefault(key: String, ifNone: () -> CharSequence):
 
 fun <T : Parcelable> Fragment?.getParcelableOrDefault(
     key: String,
-    ifNone: () -> T
+    ifNone: () -> T,
 ): T = bundleExpand.getParcelableOrDefault(key, ifNone)
 
 fun <T : Parcelable> Fragment?.getParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> Array<T>
+    ifNone: () -> Array<T>,
 ): Array<T> = bundleExpand.getParcelableArrayOrDefault(key, ifNone)
 
 fun <T : Parcelable> Fragment?.getParcelableArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<T>
+    ifNone: () -> ArrayList<T>,
 ): ArrayList<T> = bundleExpand.getParcelableArrayListOrDefault(key, ifNone)
 
 fun <T : Parcelable> Fragment?.getSparseParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> SparseArray<T>
+    ifNone: () -> SparseArray<T>,
 ): SparseArray<T> = bundleExpand.getSparseParcelableArrayOrDefault(key, ifNone)
 
 fun Fragment?.getBundleOrDefault(key: String, ifNone: () -> Bundle): Bundle =
     bundleExpand.getBundleOrDefault(key, ifNone)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Fragment?.getSizeOrDefault(key: String, ifNone: () -> Size): Size =
     bundleExpand.getSizeOrDefault(key, ifNone)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Fragment?.getSizeFOrDefault(key: String, ifNone: () -> SizeF): SizeF =
     bundleExpand.getSizeFOrDefault(key, ifNone)
 
@@ -328,12 +319,12 @@ fun Fragment?.getIntArrayListOrDefault(key: String, ifNone: () -> ArrayList<Int>
 
 fun Fragment?.getStringArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<String>
+    ifNone: () -> ArrayList<String>,
 ): ArrayList<String> = bundleExpand.getStringArrayListOrDefault(key, ifNone)
 
 fun Fragment?.getCharSequenceArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<CharSequence>
+    ifNone: () -> ArrayList<CharSequence>,
 ): ArrayList<CharSequence> = bundleExpand.getCharSequenceArrayListOrDefault(key, ifNone)
 
 fun Fragment?.getSerializableOrDefault(key: String, ifNone: () -> Serializable): Serializable =
@@ -368,5 +359,5 @@ fun Fragment?.getStringArrayOrDefault(key: String, ifNone: () -> Array<String>):
 
 fun Fragment?.getCharSequenceArrayOrDefault(
     key: String,
-    ifNone: () -> Array<CharSequence>
+    ifNone: () -> Array<CharSequence>,
 ): Array<CharSequence> = bundleExpand.getCharSequenceArrayOrDefault(key, ifNone)

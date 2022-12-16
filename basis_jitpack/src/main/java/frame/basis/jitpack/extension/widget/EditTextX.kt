@@ -1,7 +1,6 @@
 package frame.basis.jitpack.extension.widget
 
 import android.content.Context
-import android.os.Build
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 
@@ -28,24 +27,24 @@ fun EditText.forceOpenKeyBoardExpand() {
 }
 
 fun EditText.disableShowSoftInputExpand() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        showSoftInputOnFocus = false
-        return
-    }
-    runCatching {
-        val method = EditText::class.java.getMethod(
-            "setShowSoftInputOnFocus",
-            Boolean::class.javaPrimitiveType
-        )
-        method.isAccessible = true
-        method.invoke(this, false)
-    }
-    runCatching {
-        val method = EditText::class.java.getMethod(
-            "setSoftInputShownOnFocus",
-            Boolean::class.javaPrimitiveType
-        )
-        method.isAccessible = true
-        method.invoke(this, false)
-    }
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    showSoftInputOnFocus = false
+//        return
+//    }
+//    runCatching {
+//        val method = EditText::class.java.getMethod(
+//            "setShowSoftInputOnFocus",
+//            Boolean::class.javaPrimitiveType
+//        )
+//        method.isAccessible = true
+//        method.invoke(this, false)
+//    }
+//    runCatching {
+//        val method = EditText::class.java.getMethod(
+//            "setSoftInputShownOnFocus",
+//            Boolean::class.javaPrimitiveType
+//        )
+//        method.isAccessible = true
+//        method.invoke(this, false)
+//    }
 }

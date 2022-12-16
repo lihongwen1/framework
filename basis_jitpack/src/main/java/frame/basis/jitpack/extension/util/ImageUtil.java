@@ -4,22 +4,19 @@ import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.media.Image;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 
 public class ImageUtil {
 
+    private static final YuvToRgbConverter yuvToRgbConverter = YuvToRgbConverter.Companion.get();
     private static byte[] data = null;
     private static byte[] rowData = null;
     private static byte[] yRawSrcBytes;
     private static byte[] uRawSrcBytes;
     private static byte[] vRawSrcBytes;
     private static byte[] nv21;
-    private static final YuvToRgbConverter yuvToRgbConverter = YuvToRgbConverter.Companion.get();
 
     /**
      * NV21转JPEG数组
@@ -71,7 +68,6 @@ public class ImageUtil {
      * @param isMirror 是否镜像,前置需要，后置不需要
      * @return NV21数组
      */
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public static byte[] yuv420toNv21Dep(Image image, boolean isMirror) {
         Rect crop = image.getCropRect();
         int format = image.getFormat();

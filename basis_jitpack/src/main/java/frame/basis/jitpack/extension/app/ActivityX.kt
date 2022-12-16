@@ -1,10 +1,12 @@
 package frame.basis.jitpack.extension.app
 
+import android.app.Activity
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -23,7 +25,7 @@ import frame.basis.jitpack.extension.util.lazyValue
  * 注意传入布局Id,默认获取的是activity的根View
  */
 inline fun <reified T : ViewBinding> AppCompatActivity.viewBinding(
-    crossinline bindingInflater: (View) -> T
+    crossinline bindingInflater: (View) -> T,
 ) = lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
     bindingInflater.invoke(findViewById<ViewGroup>(android.R.id.content).getChildAt(0))
 }
@@ -33,7 +35,7 @@ inline fun <reified T : ViewBinding> AppCompatActivity.viewBinding(
  * 问题:没有调用之前不会主动去setContentView，建议尽快初始化ViewBinding
  */
 inline fun <reified T : ViewBinding> AppCompatActivity.viewBindingInflater(
-    crossinline bindingInflater: (LayoutInflater) -> T
+    crossinline bindingInflater: (LayoutInflater) -> T,
 ) = lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
     bindingInflater.invoke(layoutInflater).apply { setContentView(root) }
 }
@@ -94,36 +96,36 @@ fun AppCompatActivity.findFragmentByIdExpand(@IdRes id: Int, of: (fragment: Frag
 
 fun <T : Fragment> AppCompatActivity.findFragmentByTagExpand(
     tag: String,
-    ifNone: (String) -> T
+    ifNone: (String) -> T,
 ): T = supportFragmentManager.findFragmentByTag(tag) as T? ?: ifNone(tag)
 
 fun AppCompatActivity.showRunOnCommitExpand(
     fragment: Fragment,
-    runnable: Runnable
+    runnable: Runnable,
 ): FragmentTransaction =
     supportFragmentManager.beginTransaction().show(fragment).runOnCommit(runnable)
 
 fun AppCompatActivity.showFragmentExpand(
     fragmentType: FragmentType = FragmentType.COMMIT_ALLOWING_STATE_LOSS,
-    fragment: Fragment
+    fragment: Fragment,
 ) = supportFragmentManager.beginTransaction().show(fragment).commitExpand(fragmentType)
 
 fun AppCompatActivity.hideFragmentExpand(
     fragmentType: FragmentType = FragmentType.COMMIT_ALLOWING_STATE_LOSS,
-    fragment: Fragment
+    fragment: Fragment,
 ) = supportFragmentManager.beginTransaction().hide(fragment).commitExpand(fragmentType)
 
 fun AppCompatActivity.addFragmentExpand(
     id: Int,
     fragmentType: FragmentType = FragmentType.COMMIT_ALLOWING_STATE_LOSS,
-    fragment: Fragment
+    fragment: Fragment,
 ) = supportFragmentManager.beginTransaction().add(id, fragment, fragment.javaClass.simpleName)
     .commitExpand(fragmentType)
 
 fun AppCompatActivity.replaceFragmentExpand(
     id: Int,
     fragmentType: FragmentType = FragmentType.COMMIT_ALLOWING_STATE_LOSS,
-    fragment: Fragment
+    fragment: Fragment,
 ) = supportFragmentManager.beginTransaction().replace(id, fragment, fragment.javaClass.simpleName)
     .commitExpand(fragmentType)
 
@@ -142,4 +144,14 @@ enum class FragmentType {
     COMMIT_ALLOWING_STATE_LOSS,
     NOW,
     NOW_ALLOWING_STATE_LOSS
+}
+
+fun Activity.fullScreenExpand() {
+    window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+    window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+}
+
+fun Activity.noFullScreenExpand() {
+    window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+    window.addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
 }

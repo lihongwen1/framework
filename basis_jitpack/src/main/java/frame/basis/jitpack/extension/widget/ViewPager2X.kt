@@ -14,13 +14,13 @@ fun ViewPager2.doOnPageScrollStateChangedExpand(action: (state: Int) -> Unit): V
 fun ViewPager2.addOnPageChangeListenerExpand(
     onPageScrolled: (position: Int, positionOffset: Float, positionOffsetPixels: Int) -> Unit = { _: Int, _: Float, _: Int -> },
     onPageSelected: (position: Int) -> Unit = { _: Int -> },
-    onPageScrollStateChanged: (state: Int) -> Unit = { _: Int -> }
+    onPageScrollStateChanged: (state: Int) -> Unit = { _: Int -> },
 ): ViewPager2 {
     val listener = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrolled(
             position: Int,
             positionOffset: Float,
-            positionOffsetPixels: Int
+            positionOffsetPixels: Int,
         ): Unit = onPageScrolled(position, positionOffset, positionOffsetPixels)
 
         override fun onPageSelected(position: Int): Unit = onPageSelected(position)

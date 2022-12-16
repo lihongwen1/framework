@@ -5,12 +5,13 @@ plugins {
     id(Plugins.kotlin_parcelize)
 }
 android {
-    compileSdkVersion(SdkVersions.compileSdk)
+    namespace = "com.sample.demo"
+    compileSdk = SdkVersions.compileSdk
     defaultConfig {
         ndk { abiFilters.add(Invariant.armeabiV7a) }
         applicationId = Plugins.applicationId
-        minSdkVersion(SdkVersions.minSdk)
-        targetSdkVersion(SdkVersions.targetSdk)
+        minSdk = SdkVersions.minSdk
+        targetSdk = SdkVersions.targetSdk
         versionCode = SdkVersions.versionCode
         versionName = SdkVersions.versionName
         multiDexEnabled = true

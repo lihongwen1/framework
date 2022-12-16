@@ -22,7 +22,7 @@ fun String.mkdirsFileExpand(child: String): File {
 
 fun Context.lowerVersionFileExpand(
     fileName: String,
-    relativePath: String = Environment.DIRECTORY_DCIM
+    relativePath: String = Environment.DIRECTORY_DCIM,
 ): File = File(
     if (Environment.MEDIA_MOUNTED == Environment.getExternalStorageState() || !Environment.isExternalStorageRemovable()) {
         Environment.getExternalStoragePublicDirectory(relativePath).path
@@ -34,7 +34,7 @@ fun Context.lowerVersionFileExpand(
 fun Context.copyImageExpand(
     inputUri: Uri,
     displayName: String,
-    relativePath: String = Environment.DIRECTORY_DCIM
+    relativePath: String = Environment.DIRECTORY_DCIM,
 ): Uri? {
     if (Build.VERSION.SDK_INT < 29) {
         return null
@@ -50,7 +50,7 @@ fun Context.copyImageExpand(
 fun Context.copyVideoExpand(
     inputUri: Uri,
     displayName: String,
-    relativePath: String = Environment.DIRECTORY_DCIM
+    relativePath: String = Environment.DIRECTORY_DCIM,
 ): Uri? {
     if (Build.VERSION.SDK_INT < 29) {
         return null

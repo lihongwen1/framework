@@ -4,14 +4,11 @@ package frame.basis.jitpack.extension.os
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
-import androidx.annotation.RequiresApi
-
 import java.io.Serializable
 
 val Activity?.intentExpand: Intent?
@@ -137,92 +134,92 @@ fun Activity?.intentStringOrDefault(key: String, defaultValue: String = ""): Str
 
 fun Activity?.intentCharSequenceOrDefault(
     key: String,
-    defaultValue: CharSequence = ""
+    defaultValue: CharSequence = "",
 ): CharSequence = intentExpand.getCharSequenceOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Activity?.intentParcelableOrDefault(
     key: String,
-    defaultValue: Parcelable = intentExpand?.getParcelableExtra<T>(key)!!
+    defaultValue: Parcelable = intentExpand?.getParcelableExtra<T>(key)!!,
 ): T = intentExpand.getParcelableOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Activity?.intentParcelableArrayOrDefault(
     key: String,
-    defaultValue: Array<Parcelable> = emptyArray()
+    defaultValue: Array<Parcelable> = emptyArray(),
 ): Array<T> = intentExpand.getParcelableArrayOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Activity?.intentParcelableArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<T> = arrayListOf()
+    defaultValue: ArrayList<T> = arrayListOf(),
 ): ArrayList<T> = intentExpand.getParcelableArrayListOrDefault(key, defaultValue)
 
 fun Activity?.intentSerializableOrDefault(
     key: String,
-    defaultValue: Serializable = intentExpand?.getSerializableExtra(key)!!
+    defaultValue: Serializable = intentExpand?.getSerializableExtra(key)!!,
 ): Serializable = intentExpand.getSerializableOrDefault(key, defaultValue)
 
 fun Activity?.intentIntArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<Int> = arrayListOf()
+    defaultValue: ArrayList<Int> = arrayListOf(),
 ): ArrayList<Int> = intentExpand.getIntArrayListOrDefault(key, defaultValue)
 
 fun Activity?.intentStringArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<String> = arrayListOf()
+    defaultValue: ArrayList<String> = arrayListOf(),
 ): ArrayList<String> = intentExpand.getStringArrayListOrDefault(key, defaultValue)
 
 fun Activity?.intentCharSequenceArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<CharSequence> = arrayListOf()
+    defaultValue: ArrayList<CharSequence> = arrayListOf(),
 ): ArrayList<CharSequence> = intentExpand.getCharSequenceArrayListOrDefault(key, defaultValue)
 
 fun Activity?.intentBooleanArrayOrDefault(
     key: String,
-    defaultValue: BooleanArray = booleanArrayOf()
+    defaultValue: BooleanArray = booleanArrayOf(),
 ): BooleanArray = intentExpand.getBooleanArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentByteArrayOrDefault(
     key: String,
-    defaultValue: ByteArray = byteArrayOf()
+    defaultValue: ByteArray = byteArrayOf(),
 ): ByteArray = intentExpand.getByteArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentShortArrayOrDefault(
     key: String,
-    defaultValue: ShortArray = shortArrayOf()
+    defaultValue: ShortArray = shortArrayOf(),
 ): ShortArray = intentExpand.getShortArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentCharArrayOrDefault(
     key: String,
-    defaultValue: CharArray = charArrayOf()
+    defaultValue: CharArray = charArrayOf(),
 ): CharArray = intentExpand.getCharArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentIntArrayOrDefault(
     key: String,
-    defaultValue: IntArray = intArrayOf()
+    defaultValue: IntArray = intArrayOf(),
 ): IntArray = intentExpand.getIntArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentLongArrayOrDefault(
     key: String,
-    defaultValue: LongArray = longArrayOf()
+    defaultValue: LongArray = longArrayOf(),
 ): LongArray = intentExpand.getLongArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentFloatArrayOrDefault(
     key: String,
-    defaultValue: FloatArray = floatArrayOf()
+    defaultValue: FloatArray = floatArrayOf(),
 ): FloatArray = intentExpand.getFloatArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentDoubleArrayOrDefault(
     key: String,
-    defaultValue: DoubleArray = doubleArrayOf()
+    defaultValue: DoubleArray = doubleArrayOf(),
 ): DoubleArray = intentExpand.getDoubleArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentStringArrayOrDefault(
     key: String,
-    defaultValue: Array<String> = emptyArray()
+    defaultValue: Array<String> = emptyArray(),
 ): Array<String> = intentExpand.getStringArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentCharSequenceArrayOrDefault(
     key: String,
-    defaultValue: Array<CharSequence> = emptyArray()
+    defaultValue: Array<CharSequence> = emptyArray(),
 ): Array<CharSequence> = intentExpand.getCharSequenceArrayOrDefault(key, defaultValue)
 
 fun Activity?.intentBundleOrDefault(key: String, defaultValue: Bundle = Bundle.EMPTY): Bundle =
@@ -264,12 +261,12 @@ fun <T : Parcelable> Activity?.intentParcelableOrDefault(key: String, ifNone: ()
 
 fun <T : Parcelable> Activity?.intentParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> Array<T>
+    ifNone: () -> Array<T>,
 ): Array<T> = intentExpand.getParcelableArrayOrDefault(key, ifNone)
 
 fun <T : Parcelable> Activity?.intentParcelableArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<T>
+    ifNone: () -> ArrayList<T>,
 ): ArrayList<T> = intentExpand.getParcelableArrayListOrDefault(key, ifNone)
 
 fun Activity?.intentSerializableOrDefault(key: String, ifNone: () -> Serializable): Serializable =
@@ -277,18 +274,18 @@ fun Activity?.intentSerializableOrDefault(key: String, ifNone: () -> Serializabl
 
 fun Activity?.intentIntArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<Int>
+    ifNone: () -> ArrayList<Int>,
 ): ArrayList<Int> =
     intentExpand.getIntArrayListOrDefault(key, ifNone)
 
 fun Activity?.intentStringArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<String>
+    ifNone: () -> ArrayList<String>,
 ): ArrayList<String> = intentExpand.getStringArrayListOrDefault(key, ifNone)
 
 fun Activity?.intentCharSequenceArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<CharSequence>
+    ifNone: () -> ArrayList<CharSequence>,
 ): ArrayList<CharSequence> = intentExpand.getCharSequenceArrayListOrDefault(key, ifNone)
 
 fun Activity?.intentBooleanArrayOrDefault(key: String, ifNone: () -> BooleanArray): BooleanArray =
@@ -320,7 +317,7 @@ fun Activity?.intentStringArrayOrDefault(key: String, ifNone: () -> Array<String
 
 fun Activity?.intentCharSequenceArrayOrDefault(
     key: String,
-    ifNone: () -> Array<CharSequence>
+    ifNone: () -> Array<CharSequence>,
 ): Array<CharSequence> = intentExpand.getCharSequenceArrayOrDefault(key, ifNone)
 
 fun Activity?.intentBundleOrDefault(key: String, ifNone: () -> Bundle): Bundle =
@@ -362,11 +359,9 @@ fun Activity?.bundleStringExpand(key: String): String =
 fun Activity?.bundleCharSequenceExpand(key: String): CharSequence =
     bundleExpand.getCharSequenceExpand(key)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity?.bundleSizeExpand(key: String): Size =
     bundleExpand.getSizeExpand(key)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity?.bundleSizeFExpand(key: String): SizeF =
     bundleExpand.getSizeFExpand(key)
 
@@ -459,115 +454,113 @@ fun Activity?.bundleStringOrDefault(key: String, defaultValue: String = ""): Str
 
 fun Activity?.bundleCharSequenceOrDefault(
     key: String,
-    defaultValue: CharSequence = ""
+    defaultValue: CharSequence = "",
 ): CharSequence =
     bundleExpand.getCharSequenceOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Activity?.bundleParcelableOrDefault(
     key: String,
-    defaultValue: Parcelable = bundleExpand?.getParcelable<T>(key)!!
+    defaultValue: Parcelable = bundleExpand?.getParcelable<T>(key)!!,
 ): T = bundleExpand.getParcelableOrDefault(key) { defaultValue as T }
 
 fun <T : Parcelable> Activity?.bundleParcelableArrayOrDefault(
     key: String,
-    defaultValue: Array<Parcelable> = emptyArray()
+    defaultValue: Array<Parcelable> = emptyArray(),
 ): Array<T> = bundleExpand.getParcelableArrayOrDefault(key) { defaultValue as Array<T> }
 
 fun <T : Parcelable> Activity?.bundleParcelableArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<T> = arrayListOf()
+    defaultValue: ArrayList<T> = arrayListOf(),
 ): ArrayList<T> = bundleExpand.getParcelableArrayListOrDefault(key, defaultValue)
 
 fun <T : Parcelable> Activity?.bundleSparseParcelableArrayOrDefault(
     key: String,
-    defaultValue: SparseArray<T> = SparseArray()
+    defaultValue: SparseArray<T> = SparseArray(),
 ): SparseArray<T> = bundleExpand.getSparseParcelableArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleBundleOrDefault(
     key: String,
-    defaultValue: Bundle = Bundle.EMPTY
+    defaultValue: Bundle = Bundle.EMPTY,
 ): Bundle = bundleExpand.getBundleOrDefault(key, defaultValue)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity?.bundleSizeOrDefault(
     key: String,
-    defaultValue: Size = Size(0, 0)
+    defaultValue: Size = Size(0, 0),
 ): Size = bundleExpand.getSizeOrDefault(key, defaultValue)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity?.bundleSizeFOrDefault(
     key: String,
-    defaultValue: SizeF = SizeF(0.toFloat(), 0.toFloat())
+    defaultValue: SizeF = SizeF(0.toFloat(), 0.toFloat()),
 ): SizeF = bundleExpand.getSizeFOrDefault(key, defaultValue)
 
 fun Activity?.bundleIntArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<Int> = arrayListOf()
+    defaultValue: ArrayList<Int> = arrayListOf(),
 ): ArrayList<Int> = bundleExpand.getIntArrayListOrDefault(key, defaultValue)
 
 fun Activity?.bundleStringArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<String> = arrayListOf()
+    defaultValue: ArrayList<String> = arrayListOf(),
 ): ArrayList<String> = bundleExpand.getStringArrayListOrDefault(key, defaultValue)
 
 fun Activity?.bundleCharSequenceArrayListOrDefault(
     key: String,
-    defaultValue: ArrayList<CharSequence> = arrayListOf()
+    defaultValue: ArrayList<CharSequence> = arrayListOf(),
 ): ArrayList<CharSequence> = bundleExpand.getCharSequenceArrayListOrDefault(key, defaultValue)
 
 fun Activity?.bundleSerializableOrDefault(
     key: String,
-    defaultValue: Serializable = bundleExpand?.getSerializable(key)!!
+    defaultValue: Serializable = bundleExpand?.getSerializable(key)!!,
 ): Serializable = bundleExpand.getSerializableOrDefault(key, defaultValue)
 
 fun Activity?.bundleBooleanArrayOrDefault(
     key: String,
-    defaultValue: BooleanArray = booleanArrayOf()
+    defaultValue: BooleanArray = booleanArrayOf(),
 ): BooleanArray = bundleExpand.getBooleanArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleByteArrayOrDefault(
     key: String,
-    defaultValue: ByteArray = byteArrayOf()
+    defaultValue: ByteArray = byteArrayOf(),
 ): ByteArray = bundleExpand.getByteArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleShortArrayOrDefault(
     key: String,
-    defaultValue: ShortArray = shortArrayOf()
+    defaultValue: ShortArray = shortArrayOf(),
 ): ShortArray = bundleExpand.getShortArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleCharArrayOrDefault(
     key: String,
-    defaultValue: CharArray = charArrayOf()
+    defaultValue: CharArray = charArrayOf(),
 ): CharArray = bundleExpand.getCharArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleIntArrayOrDefault(
     key: String,
-    defaultValue: IntArray = intArrayOf()
+    defaultValue: IntArray = intArrayOf(),
 ): IntArray = bundleExpand.getIntArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleLongArrayOrDefault(
     key: String,
-    defaultValue: LongArray = longArrayOf()
+    defaultValue: LongArray = longArrayOf(),
 ): LongArray = bundleExpand.getLongArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleFloatArrayOrDefault(
     key: String,
-    defaultValue: FloatArray = floatArrayOf()
+    defaultValue: FloatArray = floatArrayOf(),
 ): FloatArray = bundleExpand.getFloatArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleDoubleArrayOrDefault(
     key: String,
-    defaultValue: DoubleArray = doubleArrayOf()
+    defaultValue: DoubleArray = doubleArrayOf(),
 ): DoubleArray = bundleExpand.getDoubleArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleStringArrayOrDefault(
     key: String,
-    defaultValue: Array<String> = emptyArray()
+    defaultValue: Array<String> = emptyArray(),
 ): Array<String> = bundleExpand.getStringArrayOrDefault(key, defaultValue)
 
 fun Activity?.bundleCharSequenceArrayOrDefault(
     key: String,
-    defaultValue: Array<CharSequence> = emptyArray()
+    defaultValue: Array<CharSequence> = emptyArray(),
 ): Array<CharSequence> = bundleExpand.getCharSequenceArrayOrDefault(key, defaultValue)
 
 //ifNone
@@ -606,49 +599,47 @@ fun Activity?.bundleCharSequenceOrDefault(key: String, ifNone: () -> CharSequenc
 
 fun <T : Parcelable> Activity?.bundleParcelableOrDefault(
     key: String,
-    ifNone: () -> T
+    ifNone: () -> T,
 ): T = bundleExpand.getParcelableOrDefault(key, ifNone)
 
 fun <T : Parcelable> Activity?.bundleParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> Array<T>
+    ifNone: () -> Array<T>,
 ): Array<T> = bundleExpand.getParcelableArrayOrDefault(key, ifNone)
 
 fun <T : Parcelable> Activity?.bundleParcelableArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<T>
+    ifNone: () -> ArrayList<T>,
 ): ArrayList<T> = bundleExpand.getParcelableArrayListOrDefault(key, ifNone)
 
 fun <T : Parcelable> Activity?.bundleSparseParcelableArrayOrDefault(
     key: String,
-    ifNone: () -> SparseArray<T>
+    ifNone: () -> SparseArray<T>,
 ): SparseArray<T> = bundleExpand.getSparseParcelableArrayOrDefault(key, ifNone)
 
 fun Activity?.bundleBundleOrDefault(key: String, ifNone: () -> Bundle): Bundle =
     bundleExpand.getBundleOrDefault(key, ifNone)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity?.bundleSizeOrDefault(key: String, ifNone: () -> Size): Size =
     bundleExpand.getSizeOrDefault(key, ifNone)
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 fun Activity?.bundleSizeFOrDefault(key: String, ifNone: () -> SizeF): SizeF =
     bundleExpand.getSizeFOrDefault(key, ifNone)
 
 fun Activity?.bundleIntArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<Int>
+    ifNone: () -> ArrayList<Int>,
 ): ArrayList<Int> =
     bundleExpand.getIntArrayListOrDefault(key, ifNone)
 
 fun Activity?.bundleStringArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<String>
+    ifNone: () -> ArrayList<String>,
 ): ArrayList<String> = bundleExpand.getStringArrayListOrDefault(key, ifNone)
 
 fun Activity?.bundleCharSequenceArrayListOrDefault(
     key: String,
-    ifNone: () -> ArrayList<CharSequence>
+    ifNone: () -> ArrayList<CharSequence>,
 ): ArrayList<CharSequence> = bundleExpand.getCharSequenceArrayListOrDefault(key, ifNone)
 
 fun Activity?.bundleSerializableOrDefault(key: String, ifNone: () -> Serializable): Serializable =
@@ -683,5 +674,5 @@ fun Activity?.bundleStringArrayOrDefault(key: String, ifNone: () -> Array<String
 
 fun Activity?.bundleCharSequenceArrayOrDefault(
     key: String,
-    ifNone: () -> Array<CharSequence>
+    ifNone: () -> Array<CharSequence>,
 ): Array<CharSequence> = bundleExpand.getCharSequenceArrayOrDefault(key, ifNone)

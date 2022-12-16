@@ -134,7 +134,7 @@ fun Fragment.quantityTextExpand(@PluralsRes id: Int, quantity: Int): CharSequenc
 fun Fragment.quantityStringExpand(
     @PluralsRes id: Int,
     quantity: Int,
-    vararg formatArgs: Any
+    vararg formatArgs: Any,
 ): CharSequence = requireContext().quantityStringExpand(id, quantity, *formatArgs)
 
 fun Fragment.quantityStringExpand(@PluralsRes id: Int, quantity: Int): String =

@@ -18,7 +18,7 @@ fun TextView.doOnTextChangedExpand(action: (charSequence: CharSequence, start: I
 fun TextView.addSeekBarChangeListenerExpand(
     afterTextChanged: (editable: Editable) -> Unit = { _: Editable -> },
     beforeTextChanged: (charSequence: CharSequence, start: Int, count: Int, after: Int) -> Unit = { _: CharSequence, _: Int, _: Int, _: Int -> },
-    onTextChanged: (charSequence: CharSequence, start: Int, before: Int, count: Int) -> Unit = { _: CharSequence, _: Int, _: Int, _: Int -> }
+    onTextChanged: (charSequence: CharSequence, start: Int, before: Int, count: Int) -> Unit = { _: CharSequence, _: Int, _: Int, _: Int -> },
 ): TextView {
     val textWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable) = afterTextChanged.invoke(s)

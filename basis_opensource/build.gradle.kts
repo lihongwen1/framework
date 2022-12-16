@@ -5,10 +5,11 @@ plugins {
     kotlin(Plugins.kotlin_kapt)
 }
 android {
-    compileSdkVersion(SdkVersions.compileSdk)
+    namespace = "frame.basis.opensource"
+    compileSdk = SdkVersions.compileSdk
     defaultConfig {
-        minSdkVersion(SdkVersions.minSdk)
-        targetSdkVersion(SdkVersions.targetSdk)
+        minSdk = SdkVersions.minSdk
+        targetSdk = SdkVersions.targetSdk
     }
     buildFeatures {
         viewBinding = true

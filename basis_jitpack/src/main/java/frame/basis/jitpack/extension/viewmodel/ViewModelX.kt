@@ -21,11 +21,11 @@ fun ViewModel.launchExpand(scope: Scope<Unit>, error: Error? = null, cancel: Can
     }
 }
 
-inline fun <T> ViewModel.async(crossinline scope: Scope<T>): Deferred<T> {
-    return viewModelScope.async { scope.invoke(this) }
+suspend inline fun <T> ViewModel.asyncExpand(crossinline scope: Scope<T>): T {
+    return withContext(viewModelScope.coroutineContext) { scope.invoke(this) }
 }
 
-fun Job.safeCancel() {
+fun Job.safeCancelExpand() {
     if (job.isActive && !job.isCompleted && !job.isCancelled) {
         job.cancel()
     }

@@ -4,8 +4,6 @@ package frame.basis.jitpack.extension.util
 import android.graphics.ImageFormat
 import android.graphics.Rect
 import android.media.Image
-import android.os.Build
-import androidx.annotation.RequiresApi
 import java.nio.ByteBuffer
 import kotlin.experimental.inv
 
@@ -24,7 +22,6 @@ class YuvToRgbConverter {
         yuvBuffer = null
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     @Synchronized
     fun yuvToNv21(image: Image): ByteArray {
         if (yuvBuffer == null) {
@@ -39,7 +36,6 @@ class YuvToRgbConverter {
     // see https://stackoverflow.com/a/52740776/192373
 // for 1920x1080 interleaved time is reduced from 13 ms to 2 ms
 // for less optimal resolution 1440x1080 to 5 ms
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun Image.toByteArray(outputBuffer: ByteArray) {
 
         assert(format == ImageFormat.YUV_420_888)
@@ -110,7 +106,7 @@ class YuvToRgbConverter {
         uPlane: Image.Plane,
         imageCrop: Rect,
         outputArray: ByteArray,
-        uPlaneOffset: Int = 1
+        uPlaneOffset: Int = 1,
     ) {
         assert(pixelStride == 2)
         assert(pixelStride == uPlane.pixelStride)
@@ -168,7 +164,7 @@ class YuvToRgbConverter {
     private fun Image.Plane.extractChroma(
         firstOffset: Int,
         imageCrop: Rect,
-        outputArray: ByteArray
+        outputArray: ByteArray,
     ) {
         assert(pixelStride == 1)
 

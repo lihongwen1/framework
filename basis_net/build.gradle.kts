@@ -4,10 +4,11 @@ plugins {
     id(Plugins.kotlin_parcelize)
 }
 android {
-    compileSdkVersion(SdkVersions.compileSdk)
+    namespace = "frame.basis.net"
+    compileSdk = SdkVersions.compileSdk
     defaultConfig {
-        minSdkVersion(SdkVersions.minSdk)
-        targetSdkVersion(SdkVersions.targetSdk)
+        minSdk = SdkVersions.minSdk
+        targetSdk = SdkVersions.targetSdk
     }
     buildFeatures {
         viewBinding = true
